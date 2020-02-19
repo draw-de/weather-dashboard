@@ -15,3 +15,9 @@ header {
   padding: 10px;
   padding-bottom: 5px;
 }
+.save {
+  padding: 5px;
+}
+.city:hover {
+  color: gray;
+}
