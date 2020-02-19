@@ -28,7 +28,8 @@
             <div class="input-group mb-3">
               <input
                 type="text"
-                class="form-control cityInput"
+                class="form-control"
+                id="cityInput"
                 placeholder="Search for city name"
               />
               <div class="input-group-append">
@@ -43,13 +44,29 @@
             </div>
             <div class="cities">
               <ul class="list-group">
-                <li class="list-group-item" id="miami">Miami, FL</li>
-                <li class="list-group-item" id="chicago">Chicago, IL</li>
-                <li class="list-group-item" id="newYorkCity">
+                <li class="list-group-item city" id="miami" city="miami">
+                  Miami, FL
+                </li>
+                <li class="list-group-item city" id="chicago" city="chicago">
+                  Chicago, IL
+                </li>
+                <li
+                  class="list-group-item city"
+                  id="newYorkCity"
+                  city="new york city"
+                >
                   New York City, NY
                 </li>
-                <li class="list-group-item" id="atlanta">Atlanta, GA</li>
-                <li class="list-group-item" id="losAngeles">Los Angeles, CA</li>
+                <li class="list-group-item city" id="atlanta" city="atlanta">
+                  Atlanta, GA
+                </li>
+                <li
+                  class="list-group-item city"
+                  id="losAngeles"
+                  city="los angeles"
+                >
+                  Los Angeles, CA
+                </li>
               </ul>
             </div>
           </div>
@@ -58,21 +75,11 @@
           <div class="weatherData">
             <div class="card" style="width: 42rem;">
               <div class="card-body">
-                <h5 class="card-title" id="cityName">DATE</h5>
-                <div class="card-text" id="temp">TEMP</div>
-                <div class="card-text" id="humid">HUMID</div>
-                <div class="card-text" id="windSpeed">WIND</div>
-                <div class="card-text" id="uvIndex">UV</div>
-              </div>
-            </div>
-          </div>
-          <div class="forecast">
-            <div class="card" style="width: 12rem;">
-              <div class="card-body">
-                <h5 class="card-title" id="date">DATE</h5>
-                <!--<img>-->
-                <div class="card-text" id="tempForecast">TEMP</div>
-                <div class="card-text" id="humidForecast">HUMID</div>
+                <h2 class="card-title save" id="cityName">Search for city!</h2>
+                <div class="card-text save" id="temp">Temperature: N/A</div>
+                <div class="card-text save" id="humid">Humidity: N/A</div>
+                <div class="card-text save" id="windSpeed">Wind speed: N/A</div>
+                <div class="card-text save" id="uvIndex">UV Index: N/A</div>
               </div>
             </div>
           </div>
@@ -82,5 +89,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="cities.js"></script>
   </body>
 </html>
