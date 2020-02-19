@@ -4,3 +4,14 @@ header {
   background-color: #577590;
   color: aliceblue;
 }
+.input-group {
+  padding-top: 10px;
+}
+.list-group-item {
+  cursor: pointer;
+}
+.weatherData,
+.forecast {
+  padding: 10px;
+  padding-bottom: 5px;
+}
