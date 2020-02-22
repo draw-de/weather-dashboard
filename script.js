@@ -35,6 +35,8 @@ $(".cityBtn").on("click", function() {
       var coord = obj.coord;
       uvIndex(coord);
     });
+
+    save();
   });
 
   function uvIndex(coords) {
@@ -119,9 +121,13 @@ function findCity(city) {
     }).then(function(obj) {
       var uv = obj.value;
       $("#uvIndex").html("UV Index: " + uv);
+
+      save();
     });
   }
+}
 
+function save() {
   $(".save").each(function() {
     var id = $(this).attr("id");
     var value = $(this).text();
