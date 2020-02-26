@@ -5,11 +5,7 @@ $(document).ready(function() {
   $(".cityBtn").on("click", function() {
     // Current weather
     var cityInput = $("#cityInput").val();
-    var weatherURL =
-      "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
-      cityInput +
-      "&units=imperial&appid=" +
-      apiKey;
+    var weatherURL = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
     $.ajax({
       url: weatherURL,
@@ -21,16 +17,13 @@ $(document).ready(function() {
       var temp = obj.main.temp;
       var humidity = obj.main.humidity;
       var wind = obj.wind.speed;
-      var icon =
-        "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+      var icon = `http://openweathermap.org/img/w/${obj.weather[0].icon}.png`;
 
-      $("#cityName").html(
-        name + " " + date + '<img class="imageSave" id="image" src="" />'
-      );
+      $("#cityName").html(`${name} ${date}`);
       $("#image").attr("src", icon);
-      $("#temp").html("Temperature: " + temp + " °F");
-      $("#humid").html("Humidity: " + humidity + "%");
-      $("#windSpeed").html("Wind speed: " + wind + " mph");
+      $("#temp").html(`Temperature: ${temp} °F`);
+      $("#humid").html(`Humidity: ${humidity}%`);
+      $("#windSpeed").html(`Wind speed: ${wind} mph`);
 
       $(this).each(function() {
         var coord = obj.coord;
@@ -44,20 +37,14 @@ $(document).ready(function() {
       var lon = coords.lon;
       var lat = coords.lat;
       // Current UV Index
-      var urlIndex =
-        "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/uvi?lat=" +
-        lat +
-        "&lon=" +
-        lon +
-        "&appid=" +
-        apiKey;
+      var urlIndex = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
       $.ajax({
         url: urlIndex,
         method: "GET"
       }).then(function(obj) {
         var uv = obj.value;
-        $("#uvIndex").html("UV Index: " + uv);
+        $("#uvIndex").html(`UV Index: ${uv}`);
       });
     }
   });
@@ -71,11 +58,7 @@ $(document).ready(function() {
 
   function findCity(city) {
     console.log(city);
-    var weatherURL =
-      "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
-      city +
-      "&units=imperial&appid=" +
-      apiKey;
+    var weatherURL = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
     $.ajax({
       url: weatherURL,
@@ -87,14 +70,13 @@ $(document).ready(function() {
       var temp = obj.main.temp;
       var humidity = obj.main.humidity;
       var wind = obj.wind.speed;
-      var icon =
-        "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+      var icon = `http://openweathermap.org/img/w/${obj.weather[0].icon}.png`;
 
-      $("#cityName").html(name + " " + date);
+      $("#cityName").html(`${name} ${date}`);
       $("#image").attr("src", icon);
-      $("#temp").html("Temperature: " + temp + " °F");
-      $("#humid").html("Humidity: " + humidity + "%");
-      $("#windSpeed").html("Wind speed: " + wind + " mph");
+      $("#temp").html(`Temperature: ${temp} °F`);
+      $("#humid").html(`Humidity: ${humidity}%`);
+      $("#windSpeed").html(`Wind speed: ${wind} mph`);
 
       $(this).each(function() {
         var coord = obj.coord;
@@ -106,20 +88,14 @@ $(document).ready(function() {
       var lon = coords.lon;
       var lat = coords.lat;
       // Current UV Index
-      var urlIndex =
-        "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/uvi?lat=" +
-        lat +
-        "&lon=" +
-        lon +
-        "&appid=" +
-        apiKey;
+      var urlIndex = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
       $.ajax({
         url: urlIndex,
         method: "GET"
       }).then(function(obj) {
         var uv = obj.value;
-        $("#uvIndex").html("UV Index: " + uv);
+        $("#uvIndex").html(`UV Index: ${uv}`);
 
         save();
       });
