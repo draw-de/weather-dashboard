@@ -24,10 +24,10 @@ $(document).ready(function() {
       var icon =
         "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
 
-      $("#cityName").html(name + " " + date);
-      $("#cityName").append(
-        "<img class='imageSave' id='image' src='" + icon + "'>"
+      $("#cityName").html(
+        name + " " + date + '<img class="imageSave" id="image" src="" />'
       );
+      $("#image").attr("src", icon);
       $("#temp").html("Temperature: " + temp + " °F");
       $("#humid").html("Humidity: " + humidity + "%");
       $("#windSpeed").html("Wind speed: " + wind + " mph");
@@ -90,7 +90,7 @@ $(document).ready(function() {
       var icon =
         "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
 
-      $("#cityName").html(name + " " + date + '<img id="image" src="" />');
+      $("#cityName").html(name + " " + date);
       $("#image").attr("src", icon);
       $("#temp").html("Temperature: " + temp + " °F");
       $("#humid").html("Humidity: " + humidity + "%");
@@ -142,6 +142,11 @@ $(document).ready(function() {
   $(".save").each(function() {
     var id = $(this).attr("id");
     console.log(id);
+
     $(this).html(localStorage.getItem(id));
+
+    if ((id = "image")) {
+      $("#image").attr("src", localStorage.getItem(id));
+    }
   });
 });
